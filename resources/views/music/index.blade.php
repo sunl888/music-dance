@@ -38,29 +38,10 @@
         <!-- 中间部分完成 -->
         <!-- 右边部分开始 -->
         <div class="right_box col-lg-4">
-            <div class="notice_title">
-                <h4 id="tongzhi"><a href="javascript:;"> 学术动态</a></h4>
-                <a class="more" href="javascript:;" title="更多">more+</a>
-            </div>
-            <div class="notice_content">
-                <ul id="notice_list">
-                    <li><a href="javascript:;" title="">淮南师音乐与舞蹈学院舞蹈学院<span>2017-12-31</span></a></li>
-                    <li><a href="javascript:;" title="">淮南师音乐与舞蹈学院舞蹈学院<span>2017-12-31</span></a></li>
-                    <li><a href="javascript:;" title="">淮南师音乐与舞蹈学院舞蹈学院<span>2017-12-31</span></a></li>
-                </ul>
-            </div>
-            <div class="notice_title">
-                <h4 id="tongzhi"><a href="javascript:;"> 资料下载</a></h4>
-                <a class="more" href="javascript:;" title="更多">more+</a>
-            </div>
-            <div class="notice_content">
-                <ul id="notice_list">
-                    <li><a href="javascript:;" title="">淮南师音乐与舞蹈学院舞蹈学院<span>2017-12-31</span></a></li>
-                    <li><a href="javascript:;" title="">淮南师音乐与舞蹈学院舞蹈学院<span>2017-12-31</span></a></li>
-                    <li><a href="javascript:;" title="">淮南师音乐与舞蹈学院舞蹈学院<span>2017-12-31</span></a></li>
-                </ul>
-            </div>
+            @widget('post_list', ['category' => '学术动态', 'view' => 'post_lists.default_list', 'limit' => 3])
+            @widget('post_list', ['category' => '资料下载', 'view' => 'post_lists.default_list', 'limit' => 3])
         </div>
     </div>
     <!-- 中间部分结束 -->
+    @include(THEME_NP.'layouts.particals.footer')
 @endsection
