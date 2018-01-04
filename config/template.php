@@ -27,6 +27,14 @@ return [
                 'default' => true
             ]
         ],
+        // 搜索模板
+        'search' => [
+            [
+                'file_name' => 'search',
+                'title' => '默认搜索模板',
+                'default' => true
+            ]
+        ],
         // 频道模板
         'channel' => [
             [

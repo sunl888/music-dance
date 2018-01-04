@@ -25,10 +25,9 @@
                     <div class="check">
                         <p>信息检索</p>
                         <div class="search">
-                            <form id="search_form" action="index.php" method="GET">
-                                <input type="hidden" name="s" value="Home/Search/search">
-                                <input id="search_input" placeholder="请输入关键字.." type="text" name="keyword">
-                                <i class="search_icon" title="点击查询"></i>
+                            <form id="search_form" action="{{route('frontend.web.search')}}" method="GET">
+                                <input id="search_input" name="keywords" placeholder="请输入关键字.." type="text">
+                                <i onclick="this.parentElement.submit()" class="search_icon" title="点击查询"></i>
                             </form>
                         </div>
                     </div>
