@@ -14,10 +14,10 @@
         <p style="margin-top: 10px">{{formData.content}}</p>
       </div>
       <Form :rules="rules" label-position="top" >
-        <FormItem prop="content" :error="errors.content">
+        <Form-item :error="errors.reply">
           <h3>管理员回复：</h3>
           <Input v-model="formData.reply" :rows="4" type="textarea" placeholder="请输入回复内容"></Input>
-        </FormItem>
+        </Form-item>
         <FormButtomGroup />
       </Form>
     </Panel>
@@ -34,7 +34,7 @@ export default {
   computed: {
     rules () {
       return {
-        content: [
+        reply: [
           { required: true, type: 'string', max: 500, message: '请输入回复内容', trigger: 'blur' }
         ]
       };

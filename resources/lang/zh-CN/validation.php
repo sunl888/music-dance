@@ -150,6 +150,7 @@ return [
         'size' => '大小',
         'captcha' => '验证码',
         'nick_name' => '昵称',
+        'reply' => '回复'
     ],
 
 ];
