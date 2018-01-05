@@ -31,6 +31,7 @@
         <Menu-item name="roleList">角色列表</Menu-item>
       </Submenu>
       <Menu-item name="settingList"><Icon type="gear-a"></Icon>站点设置</Menu-item>
+      <Menu-item name="messageList"><Icon type="chatboxes"></Icon>留言管理</Menu-item>
     </Menu>
     <div class="content-wrapper height-100p">
       <div class="content">

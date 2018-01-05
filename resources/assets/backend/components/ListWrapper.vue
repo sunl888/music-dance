@@ -3,6 +3,9 @@
     <header>
       <h1 class="title">{{title}}
         <span class="total">{{total}}</span>
+        <div class="option_left">
+          <slot name="option_left"></slot>
+        </div>
       </h1>
       <div class="option">
         <slot name="option"></slot>
@@ -48,6 +51,10 @@ export default {
         font-size: 14px;
         color: #888;
         margin-left: 5px;
+      }
+      >.option_left{
+        display: inline-block;
+        margin-left: 10px;
       }
     }
     >.search {
