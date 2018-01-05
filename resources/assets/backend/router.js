@@ -212,6 +212,16 @@ const router = new Router({
           path: 'setting/list/:typeName?',
           name: 'settingList',
           component: require('./views/setting/SettingList.vue')
+        },
+        {
+          path: 'messages/:status?',
+          name: 'messageList',
+          component: require('./views/message/MessageList.vue')
+        },
+        {
+          path: 'message/:id',
+          name: 'message',
+          component: require('./views/message/Message.vue')
         }
       ]
     }
