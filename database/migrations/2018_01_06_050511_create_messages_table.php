@@ -20,7 +20,7 @@ class CreateMessagesTable extends Migration
             $table->text('content');
             $table->text('reply')->nullable();
             $table->timestamp('reply_at')->nullable();
-            $table->unsignedInteger('user_id')->index();
+            $table->unsignedInteger('user_id')->index()->nullable();
             $table->timestamps();
         });
     }

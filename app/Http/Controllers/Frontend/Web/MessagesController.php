@@ -18,8 +18,21 @@ class MessagesController extends Controller
     public function index(Request $request)
     {
         $messages = Message::whereNotNull('reply_at')
-            ->latest()->with('user')->paginate($this->perPage());
-        return view(THEME_NP . 'message', ['message' => $messages]);
+            ->latest()->with('user')->paginate($this->perPage())->appends($request->all());
+        return view(THEME_NP . 'message', ['messages' => $messages]);
+    }
+
+    public function store(Request $request)
+    {
+        $data = $this->validate($request, [
+            'nick_name' => ['required', 'string', 'between:2,20'],
+            'mail' => ['required', 'string', 'email'],
+            'content' => ['required', 'string', 'between:2,500'],
+        ]);
+        $data['nick_name'] = strip_tags($data['nick_name']);
+        $data['content'] = e($data['content']);
+        Message::create($data);
+        return redirect()->route('frontend.web.messages');
     }
 
     /**

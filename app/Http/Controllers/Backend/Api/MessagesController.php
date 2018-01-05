@@ -40,6 +40,7 @@ class MessagesController extends ApiController
         ]);
         $message->reply = e($data['reply']);
         $message->reply_at = Carbon::now();
+        $message->user_id = auth()->id();
         $message->save();
         return $this->response()->noContent();
     }

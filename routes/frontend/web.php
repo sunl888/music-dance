@@ -9,4 +9,7 @@ Route::middleware('record_visitor')->group(function (){
     Route::get('/posts/{slug}', 'PostsController@show')->name('post.show');
 
     Route::get('search', 'PostsController@search')->name('search');
+
+    Route::get('messages', 'MessagesController@index')->name('messages');
+    Route::post('messages', 'MessagesController@store');
 });

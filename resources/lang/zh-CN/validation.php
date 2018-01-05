@@ -105,8 +105,8 @@ return [
             'rule-name' => 'custom-message',
         ],
     ],
-    'captcha'              => '验证码输入有误。',
-
+    'captcha' => '验证码输入有误。',
+    'nick_name' => '昵称',
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Attributes
@@ -148,7 +148,8 @@ return [
         'time' => '时间',
         'available' => '可用的',
         'size' => '大小',
-        'captcha' => '验证码'
+        'captcha' => '验证码',
+        'nick_name' => '昵称',
     ],
 
 ];
