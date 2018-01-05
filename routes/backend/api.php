@@ -50,7 +50,4 @@ Route::apiResource('attachments', 'AttachmentsController');
 
 Route::apiResource('tags', 'TagsController');
 
-Route::apiResource('messages', 'MessagesController', ['only' => ['index', 'show']]);
-Route::post('messages/{message}/replay', 'MessagesController@replay');
-
-
+Route::apiResource('messages', 'MessagesController', ['only' => ['index', 'show', 'update', 'destroy']]);

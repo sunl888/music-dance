@@ -33,7 +33,7 @@ class MessagesController extends ApiController
         return $this->response()->item($message, new MessageTransformer());
     }
 
-    public function replay(Message $message, Request $request)
+    public function update(Message $message, Request $request)
     {
         $data = $this->validate($request, [
             'reply' => ['required', 'string', 'min:1', 'max:500'],
@@ -41,6 +41,12 @@ class MessagesController extends ApiController
         $message->reply = e($data['reply']);
         $message->reply_at = Carbon::now();
         $message->save();
+        return $this->response()->noContent();
+    }
+
+    public function destroy(Message $message)
+    {
+        $message->delete();
         return $this->response()->noContent();
     }
 }
