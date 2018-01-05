@@ -11,7 +11,7 @@ class MessageTransformer extends TransformerAbstract
     {
         return [
             'id' => $message->id,
-            'email' => $message->email,
+            'mail' => $message->mail,
             'nick_name' => $message->nick_name,
             'content' => $message->content,
             'reply' => $message->reply,
