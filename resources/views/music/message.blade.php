@@ -1,5 +1,5 @@
 @extends(THEME_NP.'layouts.app')
-@section('title'){{ setting('site_name') }}@endsection
+@section('title')互动专区 - {{ setting('site_name', 'tiny') }}@endsection
 
 @section('content')
     <!-- 导航栏 -->
@@ -20,10 +20,13 @@
         <div class="share_center_box">
             <div class="share_center">
                 <ul>
-                    @foreach($messages as $message)
+                    @php
+                        $identicon = new \Identicon\Identicon();
+                    @endphp
+                    @forelse($messages as $message)
                         <li class="share_list">
                             <div class="user_photo">
-                                <img src="images/user.jpg" alt="">
+                                <img src="{!! $identicon->getImageDataUri($message->nick_name, 60) !!}" alt="">
                             </div>
                             <div class="user_content">
                                 <p>{!! $message->content !!}</p>
@@ -47,7 +50,9 @@
                                 </div>
                             </div>
                         </li>
-                    @endforeach
+                    @empty
+                        <p style="font-size: 20px; color: #666; text-align: center; margin-top: 20px;">暂无留言</p>
+                    @endforelse
                 </ul>
 
 
@@ -59,10 +64,10 @@
                 </div>
             </div>
         </div>
-
+        @widget('alert')
         <form class="add" action="{!! route('frontend.web.messages') !!}" method="post" role="form">
             {!! csrf_field() !!}
-            <h3>添加新留言</h3>
+            <h3 style="padding-left: 15px;margin-bottom: 15px">添加新留言</h3>
             <div class="form-group{{ $errors->has('nick_name') ? ' has-error' : '' }}">
                 <div class="col-md-12">
                     <input type="text" class="form-control" name="nick_name" value="{{ old('nick_name') }}" required
@@ -87,7 +92,8 @@
             </div>
             <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
                 <div class="col-md-12">
-                    <textarea name="content" class="form-control" placeholder="请在这里留言...">{{ old('content') }}</textarea>
+                    <textarea name="content" class="form-control"
+                              placeholder="请在这里留言...">{{ old('content') }}</textarea>
                     @if ($errors->has('content'))
                         <span class="help-block">
                                         <strong>{{ $errors->first('content') }}</strong>
@@ -96,9 +102,11 @@
                 </div>
             </div>
 
-            <button type="submit">提交留言</button>
+            <button style="margin-left: 15px" type="submit">提交留言</button>
         </form>
 
 
     </div>
+    <!-- 中间部分结束 -->
+    @include(THEME_NP.'layouts.particals.footer')
 @endsection

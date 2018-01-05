@@ -32,6 +32,7 @@ class MessagesController extends Controller
         $data['nick_name'] = strip_tags($data['nick_name']);
         $data['content'] = e($data['content']);
         Message::create($data);
+        app(Alert::class)->setSuccess('留言成功，等待老师回复！');
         return redirect()->route('frontend.web.messages');
     }
 
