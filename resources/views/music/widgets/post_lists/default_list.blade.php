@@ -5,7 +5,7 @@
 <div class="notice_content">
     <ul id="notice_list">
         @forelse($posts as $post)
-            <li><a href="{!! $post->getPresenter()->url() !!}" title="">{!! $post->title !!}
+            <li><a href="{!! $post->getPresenter()->url() !!}">{!! $post->title !!}
                     <span>{!! $post->published_at->format('Y-m-d') !!}</span></a></li>
         @empty
             <span>没有数据</span>
